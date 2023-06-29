@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "EHbEGDuPGAv1H/+DqtPVcq2hcAvtgz3fTWaujWmwfEQ=",
+  "Source": "MUIServer",
+  "BasePath": "_content/MUIServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
