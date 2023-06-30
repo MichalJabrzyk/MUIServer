@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MUIServer.Migrations
 {
     [DbContext(typeof(MainServerDbContext))]
-    [Migration("20230629170031_Init_MainServer")]
-    partial class Init_MainServer
+    [Migration("20230630022036_Initial_MainServer_DB")]
+    partial class Initial_MainServer_DB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,37 +33,29 @@ namespace MUIServer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int?>("MainServerID")
-                        .IsRequired()
+                    b.Property<int>("MainServerID")
                         .HasColumnType("int");
 
                     b.Property<string>("MainServerIP")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MainServerLifetime")
-                        .IsRequired()
+                    b.Property<string>("MainServerLivetime")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainServerName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MainServerPort")
+                    b.Property<int?>("MainServerPort")
                         .HasColumnType("int");
 
                     b.Property<string>("MainServerTimeEnd")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainServerTimeStart")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainServerURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MainServerVersion")

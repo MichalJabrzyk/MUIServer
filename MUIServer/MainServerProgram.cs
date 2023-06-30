@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using MUIServer.Controllers;
 using MUIServer.Entities;
 using MUIServer.Functionalities;
 using MUIServer.Seeders;
@@ -7,6 +9,7 @@ namespace MUIServer
 {
     public class MainServerProgram
     {
+        public static string serverName { get; set; }
         public static DateTime startTime { get; set; }
         public static string startTimeString { get; set; }
         public static DateTime endTime { get; set; }
@@ -29,9 +32,9 @@ namespace MUIServer
             
             ServerServices.AboutAuthor();
             ServerServices.ServerVersion();
-            
-            var serverName = "Test Server 00";
-            ServerServices.ServerName(serverName);
+
+
+            ServerServices.ServerName("test");
 
             var serverStartTime = DateTime.Now;
             startTime = serverStartTime;

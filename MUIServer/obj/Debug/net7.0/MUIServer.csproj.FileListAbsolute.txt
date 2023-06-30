@@ -526,3 +526,5 @@ E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\obj\Debug\net7.0\refint\MUIServer
 E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\obj\Debug\net7.0\MUIServer.pdb
 E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\obj\Debug\net7.0\MUIServer.genruntimeconfig.cache
 E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\obj\Debug\net7.0\ref\MUIServer.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\AutoMapper.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

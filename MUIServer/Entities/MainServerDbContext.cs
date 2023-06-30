@@ -13,18 +13,13 @@ namespace MUIServer.Entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MainServer>()
-                .Property(p => p.MainServerID)
-                .IsRequired();
+                .Property(p => p.MainServerID);
 
             modelBuilder.Entity<MainServer>()
-                .Property(p => p.MainServerName)
-                .IsRequired()
-                .HasMaxLength(50);
+                .Property(p => p.MainServerName);
 
             modelBuilder.Entity<MainServer>()
-                .Property(p => p.MainServerTimeStart)
-                .IsRequired()
-                .HasMaxLength(50);
+                .Property(p => p.MainServerTimeStart);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

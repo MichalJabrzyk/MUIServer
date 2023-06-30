@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MUIServer.Entities;
 using System.Globalization;
-
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MUIServer.Controllers
 {
@@ -10,131 +8,406 @@ namespace MUIServer.Controllers
     [ApiController]
     public class MainServerInfo : ControllerBase
     {
-        [HttpGet("serverid")]
-        public int GetMainServerId(int serverid) 
+        private readonly MainServerDbContext mainServerDbContext;
+
+        public MainServerInfo(MainServerDbContext dbContext)
         {
-            return serverid;
+            mainServerDbContext = dbContext;
+        }
+
+        [HttpGet("serverid")]
+        public ActionResult <MainServer> GetMainServerId()
+        {
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverId = mainServer.MainServerID;
+            Console.WriteLine(" 'GET serverid' Server id = " + serverId);
+
+            return Ok(mainServer.MainServerID);
         }
 
         [HttpPost("serverid")]
-        public int PastMainServerId(int serverid) 
-        { 
-            return serverid; 
+        public ActionResult SetMainServerId(int serverId)
+        {
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            mainServer.MainServerID = serverId;
+            Console.WriteLine(" 'POST serverid' Server id = " + serverId);
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerID);
         }
 
         [HttpGet("servername")]
-        public string GetMainServerName(string serverName)
+        public ActionResult<MainServer> GetMainServerName()
         {
-            return serverName;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverName = mainServer.MainServerName;
+            Console.WriteLine(" 'GET servername' Server name = " + serverName);
+
+            return Ok(mainServer.MainServerName);
         }
 
         [HttpPost("servername")]
-        public string SetMainServerName(string serverName) 
-        { 
-            return serverName; 
+        public ActionResult SetMainServerName(string serverName)
+        {
+            var server_Name = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (server_Name is null)
+            {
+                return NotFound();
+            }
+
+            server_Name.MainServerName = serverName;
+            Console.WriteLine(" 'POST servername' Server name = " + serverName);
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(server_Name.MainServerName);
         }
 
         [HttpGet("serverversion")]
-        public string GetMainServerVersion(string serverVersion)
+        public ActionResult<MainServer> GetMainServerVersion()
         {
-            return serverVersion;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverVersion = mainServer.MainServerVersion;
+            Console.WriteLine(" 'GET serverversion' Server version = " + serverVersion);
+
+            return Ok(mainServer.MainServerVersion);
         }
 
         [HttpPost("serverversion")]
-        public string SetMainServerVersion(string serverVersion)
+        public ActionResult SetMainServerVersion(string serverVersion)
         {
-            return serverVersion;
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            mainServer.MainServerName = serverVersion;
+            Console.WriteLine(" 'POST serverversion' Server version = " + serverVersion);
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerVersion);
         }
 
         [HttpGet("serverip")]
-        public string GetMainServerIp(string serverIp)
+        public ActionResult<MainServer> GetMainServerIp()
         {
-            return serverIp;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverIp = mainServer.MainServerIP;
+            Console.WriteLine(" 'GET serverip' Server ip = " + serverIp);
+
+            return Ok(mainServer.MainServerIP);
         }
 
         [HttpPost("serverip")]
-        public string SetMainServerIp(string serverIp)
+        public ActionResult SetMainServerIp(string serverIp)
         {
-            return serverIp;
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            mainServer.MainServerIP = serverIp;
+            Console.WriteLine(" 'POST serverip' Server ip = " + serverIp);
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerIP);
         }
 
         [HttpGet("serverport")]
-        public string GetMainServerPort(string serverPort)
+        public ActionResult<MainServer> GetMainServerPort()
         {
-            return serverPort;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverPort = mainServer.MainServerPort;
+            Console.WriteLine(" 'GET serverport' Server port = " + serverPort);
+
+            return Ok(mainServer.MainServerPort);
         }
 
         [HttpPost("serverport")]
-        public string SetMainServerPort(string serverPort)
+        public ActionResult SetMainServerPort(int serverPort)
         {
-            return serverPort;
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            mainServer.MainServerPort = serverPort;
+            Console.WriteLine(" 'POST serverport' Server port = " + serverPort);
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerPort);
         }
 
         [HttpGet("serverurl")]
-        public string GetMainServerUrl(string serverUrl)
+        public ActionResult<MainServer> GetMainServerUrl()
         {
-            return serverUrl;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverUrl = mainServer.MainServerURL;
+            Console.WriteLine(" 'GET serverurl' Server url = " + serverUrl);
+
+            return Ok(mainServer.MainServerURL);
         }
 
         [HttpPost("serverurl")]
-        public string SetMainServerUrl(string serverUrl)
+        public ActionResult SetMainServerUrl(string serverUrl)
         {
-            return serverUrl;
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            mainServer.MainServerURL = serverUrl;
+            Console.WriteLine(" 'POST serverurl' Server url = " + serverUrl);
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerURL);
         }
 
         [HttpGet("serverstarttime")]
-        public DateTime GetServerStartLiveTime(DateTime startTime)
+        public ActionResult<MainServer> GetServerStartTime()
         {
-            startTime = MainServerProgram.startTime;
-            Console.WriteLine(" Server start time = " + startTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
-            return startTime;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverStartTime = mainServer.MainServerTimeStart;
+            Console.WriteLine(" 'GET serverstarttime' Server start time = " + serverStartTime);
+
+            return Ok(mainServer.MainServerTimeStart);
         }
 
         [HttpPost("serverstarttime")]
-        public DateTime SetServerStartLiveTime(DateTime startTime)
+        public ActionResult SetServerStartTime(DateTime serverStartTime)
         {
-            startTime = MainServerProgram.startTime;
-            Console.WriteLine(" Server start time = " + startTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
-            return startTime;
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            serverStartTime = MainServerProgram.startTime;
+            mainServer.MainServerTimeStart = serverStartTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl"));
+            Console.WriteLine(" 'POST serverstarttime' Server start time = " + serverStartTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerTimeStart);
         }
 
         [HttpGet("servercurrenttime")]
-        public DateTime GetServerTime()
+        public ActionResult<MainServer> GetServerCurrentTime(DateTime serverCurrentTime)
         {
-            var serverTime = new DateTime();
-            serverTime = DateTime.Now;
-            Console.WriteLine(" Server current time = " + serverTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
-            return serverTime;
-        }
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
 
-        [HttpPost("servercurrenttime")]
-        public DateTime SetServerTime()
-        {
-            var serverTime = new DateTime();
-            serverTime = DateTime.Now;
-            Console.WriteLine(" Server current time = " + serverTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
-            return serverTime;
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            serverCurrentTime = DateTime.Now;
+            Console.WriteLine(" 'GET servercurrenttime' Server current time = " + serverCurrentTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
+            return Ok(serverCurrentTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
         }
 
         [HttpGet("serverlivetime")]
-        public TimeSpan GetServerLiveTime(DateTime startTime, DateTime currentTime)
+        public ActionResult<MainServer> GetServerLivetime()
         {
-            startTime = MainServerProgram.startTime;
-            currentTime = DateTime.Now;
-            TimeSpan serverLiveTime = currentTime - startTime;
-            Console.WriteLine(" Server livetime = " + serverLiveTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
-            return serverLiveTime;
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverStartTime = MainServerProgram.startTime;
+            var serverCurrentTime = DateTime.Now;
+            TimeSpan serverLiveTime = serverCurrentTime - serverStartTime;
+            Console.WriteLine(" 'GET serverlivetime' Server livetime = " + serverLiveTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
+            mainServer.MainServerLivetime = serverLiveTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl"));
+
+            return Ok(mainServer.MainServerLivetime);
         }
 
-        [HttpPost("serverlivetime")]
-        public TimeSpan SetServerLiveTime(DateTime startTime, DateTime currentTime)
+        [HttpPost("serverlivettime")]
+        public ActionResult SetServerLivetime(DateTime serverLivetime)
         {
-            startTime = MainServerProgram.startTime;
-            currentTime = DateTime.Now;
-            TimeSpan serverLiveTime = currentTime - startTime;
-            Console.WriteLine(" Server livetime = " + serverLiveTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
-            return serverLiveTime;
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverStartTime = MainServerProgram.startTime;
+            var serverCurrentTime = DateTime.Now;
+            TimeSpan serverLiveTime = serverCurrentTime - serverStartTime;
+            Console.WriteLine(" 'POST serverlivetime' Server livetime = " + serverLiveTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
+            mainServer.MainServerLivetime = serverLiveTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl"));
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerLivetime);
         }
+
+        [HttpGet("serverendtime")]
+        public ActionResult<MainServer> GetServerEndTime()
+        {
+            MainServer mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            var serverEndTime = mainServer.MainServerTimeEnd;
+            Console.WriteLine(" 'GET serverlivetime' Server livetime = " + serverEndTime);
+           
+            return Ok(mainServer.MainServerTimeEnd);
+
+        }
+
+        [HttpPost("serverendtime")]
+        public ActionResult SetServerEndTime(DateTime serverEndTime)
+        {
+            var mainServer = mainServerDbContext.MainServer.FirstOrDefault();
+
+            if (mainServer is null)
+            {
+                return NotFound();
+            }
+
+            serverEndTime = MainServerProgram.endTime;
+            Console.WriteLine(" 'POST serverendtime' Server endtime = " + serverEndTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl")));
+            mainServer.MainServerTimeEnd = serverEndTime.ToString("G", CultureInfo.CreateSpecificCulture("pl-Pl"));
+
+            try
+            {
+                mainServerDbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok(mainServer.MainServerTimeEnd);
+        }
+
 
     }
 }

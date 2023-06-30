@@ -1,11 +1,15 @@
-﻿using System.Net;
+﻿using MUIServer.Controllers;
+using System.Net;
 
 namespace MUIServer.Functionalities
 {
 
     public class ServerServices
     {
-        public static void ServerName(string serverName) { Console.WriteLine(serverName); }
+        public static void ServerName(string serverName) 
+        {
+            Console.WriteLine(serverName); 
+        }
         
         public static void ServerVersion() 
         { 

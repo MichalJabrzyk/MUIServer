@@ -32,7 +32,7 @@ namespace MUIServer.Seeders
                                 MainServerPort = 8080,
                                 MainServerURL = "https://localhost:7090/swagger",
                                 MainServerTimeStart = MainServerProgram.startTimeString,
-                                MainServerLifetime = MainServerProgram.startTimeString,
+                                MainServerLivetime = MainServerProgram.startTimeString,
                                 MainServerTimeEnd = MainServerProgram.startTimeString
                             });
 

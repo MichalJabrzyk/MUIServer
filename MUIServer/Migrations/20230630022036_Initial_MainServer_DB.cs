@@ -5,7 +5,7 @@
 namespace MUIServer.Migrations
 {
     /// <inheritdoc />
-    public partial class Init_MainServer : Migration
+    public partial class Initial_MainServer_DB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,14 +17,14 @@ namespace MUIServer.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MainServerID = table.Column<int>(type: "int", nullable: false),
-                    MainServerName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    MainServerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MainServerVersion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MainServerIP = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MainServerPort = table.Column<int>(type: "int", nullable: false),
-                    MainServerURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MainServerTimeStart = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    MainServerTimeEnd = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MainServerLifetime = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MainServerIP = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MainServerPort = table.Column<int>(type: "int", nullable: true),
+                    MainServerURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MainServerTimeStart = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MainServerTimeEnd = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MainServerLivetime = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
