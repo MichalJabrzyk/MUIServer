@@ -528,3 +528,12 @@ E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\obj\Debug\net7.0\MUIServer.genrun
 E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\obj\Debug\net7.0\ref\MUIServer.dll
 E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\AutoMapper.dll
 E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\Microsoft.AspNet.Identity.Core.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\FluentValidation.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+E:\PROJEKTY\SERWER\Custome\MUIServer\MUIServer\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

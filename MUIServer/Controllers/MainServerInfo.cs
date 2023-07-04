@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MUIServer.Entities;
 using System.Globalization;
 
 namespace MUIServer.Controllers
 {
-    [Route("mainserverinfo")]
+    [Route("api/mainserverinfo")]
     [ApiController]
+    [Authorize(Roles = "Administrator, Developer")]
     public class MainServerInfo : ControllerBase
     {
         private readonly MainServerDbContext mainServerDbContext;

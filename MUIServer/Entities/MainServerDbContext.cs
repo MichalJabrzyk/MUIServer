@@ -10,8 +10,24 @@ namespace MUIServer.Entities
 
         public DbSet<MainServer> MainServer { get; set; }
 
+        public DbSet<ServerUser> Users { get; set; }
+
+        public DbSet<ServerUserRole> UserRoles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ServerUser>()
+                .Property(e => e.EmailAddress)
+                .IsRequired();
+            
+            modelBuilder.Entity<ServerUser>()
+                .Property(b => b.BirthDate)
+                .IsRequired();
+
+            modelBuilder.Entity<ServerUserRole>()
+                .Property(f => f.Name)
+                .IsRequired();
+
             modelBuilder.Entity<MainServer>()
                 .Property(p => p.MainServerID);
 

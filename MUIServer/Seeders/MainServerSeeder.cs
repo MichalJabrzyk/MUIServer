@@ -38,7 +38,47 @@ namespace MUIServer.Seeders
 
                         context.SaveChanges();
                     }
+
+                    var userRole = context.UserRoles.FirstOrDefault();
+
+                    if (userRole == null)
+                    {
+                        context.UserRoles.AddRange(
+
+                             new ServerUserRole
+                             {
+                                 Name = "Player"
+                             });
+
+
+                        context.UserRoles.AddRange(
+
+                            new ServerUserRole()
+                            {
+                                Name = "Boot"
+                            });
+
+                        context.UserRoles.AddRange(
+
+                            new ServerUserRole()
+                            {
+                                Name = "Administrator"
+                            });
+
+
+                        context.UserRoles.AddRange(
+
+                            new ServerUserRole()
+                            {
+                                Name = "Developer"
+                            });
+
+                        context.SaveChanges();
+
+                    }
                 }
+
+
 
                 catch (Exception)
                 {
@@ -50,6 +90,36 @@ namespace MUIServer.Seeders
             }
 
         }
+
+        /*private IEnumerable<UserRole> GetUserRole()
+        {
+            var roles = new List<UserRole>()
+            {
+                new UserRole()
+                {
+                    Name = "Player"
+                },
+
+                new UserRole()
+                {
+                    Name = "Boot"
+                },
+
+                new UserRole()
+                {
+                    Name = "Administrator"
+                },
+
+                new UserRole()
+                {
+                    Name = "Developer"
+                }
+
+            };
+
+            return roles;
+
+        }*/
       
     }
 }
